@@ -19,7 +19,7 @@ const Photobooth = () => {
   const [capturedPhoto, setCapturedPhoto] = useState<string | null>(null);
   const [showConfetti, setShowConfetti] = useState(false);
 
-  const birthdayName = 'LEX';
+  const birthdayName = 'lex';
   const cameraRef = useRef<CameraViewRef>(null);
 
   const handleCameraReady = useCallback(() => {
@@ -83,12 +83,9 @@ const Photobooth = () => {
       
       {/* Header */}
       <div className="text-center mb-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-2">
-          💖 Birthday Photobooth 💖
+        <h1 className="text-4xl md:text-5xl font-bold text-gradient">
+          PHOTOBOOTH !! 🎂
         </h1>
-        <p className="text-muted-foreground text-lg">
-          Strike a pose, {birthdayName}! ✨
-        </p>
       </div>
 
       {/* Main Content */}
@@ -104,10 +101,11 @@ const Photobooth = () => {
         <div className="w-full max-w-2xl space-y-5">
           {/* Camera Container */}
           <PhotoFrame frameType={selectedFrame}>
-            <div className={`relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-primary/40 bg-muted filter-${selectedFilter}`}>
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-primary/40 bg-muted">
               <CameraView
                 ref={cameraRef}
                 mirrored={mirrored}
+                filterType={selectedFilter}
                 onCameraReady={handleCameraReady}
                 onCameraError={handleCameraError}
               />
@@ -128,7 +126,7 @@ const Photobooth = () => {
           <div className="space-y-4">
             {/* Frame Selector */}
             <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-primary/20">
-              <p className="text-sm text-muted-foreground text-center mb-3">Choose your frame:</p>
+              <p className="text-sm text-muted-foreground text-center mb-3">choose ur frame:</p>
               <FrameSelector
                 selectedFrame={selectedFrame}
                 onSelectFrame={setSelectedFrame}
@@ -137,7 +135,7 @@ const Photobooth = () => {
 
             {/* Filter Selector */}
             <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-primary/20">
-              <p className="text-sm text-muted-foreground text-center mb-3">Pick a filter:</p>
+              <p className="text-sm text-muted-foreground text-center mb-3">pick a filter:</p>
               <FilterSelector
                 selectedFilter={selectedFilter}
                 onSelectFilter={setSelectedFilter}
@@ -153,7 +151,7 @@ const Photobooth = () => {
                 className="rounded-full px-6 gap-2 hover:scale-105 transition-transform border-2 border-primary/30"
               >
                 <FlipHorizontal className="w-5 h-5" />
-                Mirror
+                mirror
               </Button>
               <Button
                 onClick={startCountdown}
@@ -162,7 +160,7 @@ const Photobooth = () => {
                 className="rounded-full px-8 gap-2 bg-primary text-primary-foreground animate-pulse-glow hover:scale-105 transition-transform text-lg font-semibold"
               >
                 <Camera className="w-6 h-6" />
-                Take Photo
+                take photo
               </Button>
             </div>
           </div>

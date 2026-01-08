@@ -8,12 +8,12 @@ interface FilterSelectorProps {
 }
 
 const filters: { type: FilterType; label: string; emoji: string }[] = [
-  { type: 'none', label: 'Normal', emoji: '✨' },
-  { type: 'warm', label: 'Warm', emoji: '🌅' },
-  { type: 'cool', label: 'Cool', emoji: '❄️' },
-  { type: 'vintage', label: 'Vintage', emoji: '📷' },
-  { type: 'bw', label: 'B&W', emoji: '🖤' },
-  { type: 'soft', label: 'Soft', emoji: '💕' },
+  { type: 'none', label: 'normal', emoji: '✨' },
+  { type: 'warm', label: 'warm', emoji: '🌅' },
+  { type: 'cool', label: 'cool', emoji: '❄️' },
+  { type: 'vintage', label: 'vintage', emoji: '📷' },
+  { type: 'bw', label: 'b&w', emoji: '🖤' },
+  { type: 'soft', label: 'soft', emoji: '💕' },
 ];
 
 const FilterSelector = ({ selectedFilter, onSelectFilter }: FilterSelectorProps) => {
