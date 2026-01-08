@@ -31,14 +31,6 @@ This is a super cute, browser-based photobooth made to capture fun birthday memo
 
 No backend needed – it works straight in your browser! 😎
 
-📂 File Structure
------------------
-
-/pink-birthday-photobooth
-├── index.html # The main page
-├── style.css # All the colors, frames, and cute animations
-└── script.js # Camera, countdown, take photo & download logic
-
 🚀 How to Use
 ---------------
 
