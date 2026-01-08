@@ -7,30 +7,27 @@ interface FrameSelectorProps {
 }
 
 const frames: { type: FrameType; emoji: string; label: string }[] = [
-  { type: 'none', emoji: '⬜', label: 'None' },
-  { type: 'balloons', emoji: '🎈', label: 'Balloons' },
-  { type: 'stars', emoji: '⭐', label: 'Stars' },
-  { type: 'confetti', emoji: '🎉', label: 'Party' },
-  { type: 'cake', emoji: '🎂', label: 'Cake' },
+  { type: 'hearts', emoji: '💗', label: 'Hearts' },
+  { type: 'sparkles', emoji: '✨', label: 'Sparkles' },
 ];
 
 const FrameSelector = ({ selectedFrame, onSelectFrame }: FrameSelectorProps) => {
   return (
-    <div className="flex flex-wrap gap-2 justify-center">
+    <div className="flex gap-3 justify-center">
       {frames.map((frame) => (
         <Button
           key={frame.type}
           variant={selectedFrame === frame.type ? 'default' : 'outline'}
-          size="sm"
+          size="lg"
           onClick={() => onSelectFrame(frame.type)}
-          className={`rounded-full px-4 py-2 transition-all duration-200 hover:scale-105 ${
+          className={`rounded-full px-6 py-3 transition-all duration-200 hover:scale-105 ${
             selectedFrame === frame.type
               ? 'bg-primary text-primary-foreground shadow-lg'
-              : 'bg-card hover:bg-secondary'
+              : 'bg-card hover:bg-secondary border-2 border-primary/30'
           }`}
         >
-          <span className="mr-1">{frame.emoji}</span>
-          <span className="hidden sm:inline">{frame.label}</span>
+          <span className="mr-2 text-xl">{frame.emoji}</span>
+          <span className="font-medium">{frame.label}</span>
         </Button>
       ))}
     </div>
