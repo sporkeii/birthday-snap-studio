@@ -1,73 +1,50 @@
-# Welcome to your Lovable project
+🎉 Pink Birthday Photobooth for Lex 🎀
 
-## Project info
+Welcome to Lex’s Pink Birthday Photobooth! This is a cute, browser-based photobooth to capture fun birthday memories. Perfect for parties and celebrations!
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+🌸 Features
 
-## How can I edit this code?
+- Live camera preview 🎥
+- Countdown timer before taking photos (3…2…1!) ⏱
+- Capture photos with a single click 📸
+- Add a cute birthday frame and overlay (e.g., “Happy Birthday Lex!”) 🎈
+- Download your photo instantly 💾
+- Retake option if needed 🔄
+- Fully responsive – works on desktop and mobile 📱
 
-There are several ways of editing your application.
+🎨 Design
 
-**Use Lovable**
+- Soft pink and pastel color theme
+- Rounded buttons and playful fonts
+- Confetti animation on photo capture 🎊
+- Cute birthday frames, balloons, and stars ✨
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+🛠 Technology
 
-Changes made via Lovable will be committed automatically to this repo.
+- HTML – Structure and elements
+- CSS – Birthday theme, cute animations, responsive design
+- JavaScript – Camera access, countdown, photo capture, download
 
-**Use your preferred IDE**
+No backend required. Works directly in your browser!
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+📂 File Structure
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+/pink-birthday-photobooth
+ ├── index.html       # Main page
+ ├── style.css        # Styling and animations
+ └── script.js        # Camera, countdown, capture, download
 
-Follow these steps:
+🚀 How to Use
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. Open index.html in your browser
+2. Allow camera access when prompted
+3. Enter Lex’s name if you want it on the photo
+4. Click Take Photo → watch the countdown → smile! 😁
+5. Preview your photo → Download or Retake
+6. Celebrate Lex’s birthday with cute pics! 🎉💖
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+💖 Notes
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- Works best in Chrome or Firefox
+- Fully offline once loaded
+- Keep your camera clean for clear photos 😉
