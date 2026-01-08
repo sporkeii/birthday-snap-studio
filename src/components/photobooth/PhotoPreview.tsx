@@ -15,6 +15,10 @@ interface PhotoPreviewProps {
 const frameEmojis: Record<FrameType, string[]> = {
   hearts: ['💗', '💖', '💕', '💗'],
   sparkles: ['✨', '💫', '⭐', '✨'],
+  balloons: ['🎈', '🎈', '🎈', '🎈'],
+  stars: ['⭐', '✨', '⭐', '✨'],
+  confetti: ['🎊', '🎉', '🎊', '🎉'],
+  cake: ['🎂', '🧁', '🎂', '🧁'],
 };
 
 const filterStyles: Record<FilterType, string> = {
