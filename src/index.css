@@ -8,72 +8,72 @@
 
 @layer base {
   :root {
-    --background: 330 50% 98%;
-    --foreground: 280 30% 25%;
+    --background: 340 80% 96%;
+    --foreground: 340 50% 25%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 280 30% 25%;
+    --card: 340 60% 98%;
+    --card-foreground: 340 50% 25%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 280 30% 25%;
+    --popover: 340 60% 98%;
+    --popover-foreground: 340 50% 25%;
 
-    --primary: 330 70% 75%;
-    --primary-foreground: 280 30% 20%;
+    --primary: 340 85% 65%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 270 60% 85%;
-    --secondary-foreground: 270 40% 25%;
+    --secondary: 340 70% 88%;
+    --secondary-foreground: 340 60% 30%;
 
-    --muted: 200 50% 92%;
-    --muted-foreground: 280 20% 45%;
+    --muted: 340 50% 92%;
+    --muted-foreground: 340 30% 45%;
 
-    --accent: 50 80% 80%;
-    --accent-foreground: 50 60% 25%;
+    --accent: 340 90% 78%;
+    --accent-foreground: 340 70% 20%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 330 40% 88%;
-    --input: 330 40% 88%;
-    --ring: 330 70% 75%;
+    --border: 340 60% 85%;
+    --input: 340 60% 90%;
+    --ring: 340 85% 65%;
 
     --radius: 1rem;
 
-    /* Custom birthday colors */
-    --birthday-pink: 330 70% 75%;
-    --birthday-lilac: 270 60% 82%;
-    --birthday-blue: 200 70% 80%;
-    --birthday-yellow: 50 85% 75%;
-    --birthday-mint: 160 50% 80%;
+    /* Custom birthday colors - ALL PINK! */
+    --birthday-pink: 340 85% 65%;
+    --birthday-pink-light: 340 75% 85%;
+    --birthday-pink-dark: 340 80% 55%;
+    --birthday-hot-pink: 330 90% 60%;
+    --birthday-blush: 350 70% 80%;
   }
 
   .dark {
-    --background: 280 30% 12%;
-    --foreground: 330 50% 95%;
+    --background: 340 40% 12%;
+    --foreground: 340 60% 95%;
 
-    --card: 280 25% 15%;
-    --card-foreground: 330 50% 95%;
+    --card: 340 35% 15%;
+    --card-foreground: 340 60% 95%;
 
-    --popover: 280 25% 15%;
-    --popover-foreground: 330 50% 95%;
+    --popover: 340 35% 15%;
+    --popover-foreground: 340 60% 95%;
 
-    --primary: 330 70% 70%;
-    --primary-foreground: 280 30% 10%;
+    --primary: 340 85% 65%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 270 40% 30%;
-    --secondary-foreground: 270 60% 90%;
+    --secondary: 340 50% 25%;
+    --secondary-foreground: 340 70% 90%;
 
-    --muted: 280 20% 20%;
-    --muted-foreground: 280 20% 70%;
+    --muted: 340 30% 20%;
+    --muted-foreground: 340 30% 70%;
 
-    --accent: 50 60% 50%;
-    --accent-foreground: 50 80% 95%;
+    --accent: 340 70% 50%;
+    --accent-foreground: 340 80% 95%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 280 20% 25%;
-    --input: 280 20% 25%;
-    --ring: 330 70% 70%;
+    --border: 340 30% 25%;
+    --input: 340 30% 25%;
+    --ring: 340 85% 65%;
   }
 }
 
@@ -91,15 +91,35 @@
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--birthday-pink)), hsl(var(--birthday-lilac)), hsl(var(--birthday-blue)));
+    background-image: linear-gradient(135deg, hsl(var(--birthday-hot-pink)), hsl(var(--birthday-pink)), hsl(var(--birthday-blush)));
   }
 
   .bg-gradient-birthday {
     background: linear-gradient(135deg, 
-      hsl(var(--birthday-pink) / 0.3), 
-      hsl(var(--birthday-lilac) / 0.3), 
-      hsl(var(--birthday-blue) / 0.3)
+      hsl(var(--birthday-pink) / 0.4), 
+      hsl(var(--birthday-pink-light) / 0.5), 
+      hsl(var(--birthday-blush) / 0.4)
     );
+  }
+
+  /* Photo Filters */
+  .filter-none {
+    filter: none;
+  }
+  .filter-warm {
+    filter: sepia(0.3) saturate(1.4) brightness(1.1);
+  }
+  .filter-cool {
+    filter: saturate(0.9) brightness(1.1) hue-rotate(-10deg);
+  }
+  .filter-vintage {
+    filter: sepia(0.4) contrast(1.1) brightness(0.95) saturate(0.8);
+  }
+  .filter-bw {
+    filter: grayscale(1) contrast(1.1);
+  }
+  .filter-soft {
+    filter: brightness(1.1) contrast(0.95) saturate(1.2);
   }
 }
 

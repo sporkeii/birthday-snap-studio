@@ -1,10 +1,10 @@
 import { useState, useRef, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Camera, FlipHorizontal } from 'lucide-react';
 import CameraView, { CameraViewRef } from './CameraView';
 import PhotoFrame, { FrameType } from './PhotoFrame';
 import FrameSelector from './FrameSelector';
+import FilterSelector, { FilterType } from './FilterSelector';
 import CountdownOverlay from './CountdownOverlay';
 import PhotoPreview from './PhotoPreview';
 import Confetti from './Confetti';
@@ -13,12 +13,13 @@ const Photobooth = () => {
   const [cameraReady, setCameraReady] = useState(false);
   const [cameraError, setCameraError] = useState<string | null>(null);
   const [mirrored, setMirrored] = useState(true);
-  const [selectedFrame, setSelectedFrame] = useState<FrameType>('balloons');
-  const [birthdayName, setBirthdayName] = useState('');
+  const [selectedFrame, setSelectedFrame] = useState<FrameType>('hearts');
+  const [selectedFilter, setSelectedFilter] = useState<FilterType>('none');
   const [countdown, setCountdown] = useState<number | null>(null);
   const [capturedPhoto, setCapturedPhoto] = useState<string | null>(null);
   const [showConfetti, setShowConfetti] = useState(false);
 
+  const birthdayName = 'LEX';
   const cameraRef = useRef<CameraViewRef>(null);
 
   const handleCameraReady = useCallback(() => {
@@ -61,7 +62,7 @@ const Photobooth = () => {
   if (cameraError) {
     return (
       <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-birthday">
-        <div className="bg-card p-8 rounded-3xl shadow-xl text-center max-w-md">
+        <div className="bg-card p-8 rounded-3xl shadow-xl text-center max-w-md border-2 border-primary/20">
           <div className="text-6xl mb-4">📷</div>
           <h2 className="text-2xl font-bold text-foreground mb-4">Camera Access Needed</h2>
           <p className="text-muted-foreground mb-6">{cameraError}</p>
@@ -83,10 +84,10 @@ const Photobooth = () => {
       {/* Header */}
       <div className="text-center mb-6">
         <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-2">
-          🎂 Birthday Photobooth 🎉
+          💖 Birthday Photobooth 💖
         </h1>
         <p className="text-muted-foreground text-lg">
-          Capture your special moments!
+          Strike a pose, {birthdayName}! ✨
         </p>
       </div>
 
@@ -95,14 +96,15 @@ const Photobooth = () => {
         <PhotoPreview
           photoData={capturedPhoto}
           frameType={selectedFrame}
+          filterType={selectedFilter}
           birthdayName={birthdayName}
           onRetake={handleRetake}
         />
       ) : (
-        <div className="w-full max-w-2xl space-y-6">
+        <div className="w-full max-w-2xl space-y-5">
           {/* Camera Container */}
           <PhotoFrame frameType={selectedFrame}>
-            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-primary/30 bg-muted">
+            <div className={`relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-primary/40 bg-muted filter-${selectedFilter}`}>
               <CameraView
                 ref={cameraRef}
                 mirrored={mirrored}
@@ -125,7 +127,7 @@ const Photobooth = () => {
           {/* Controls */}
           <div className="space-y-4">
             {/* Frame Selector */}
-            <div className="bg-card/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
+            <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-primary/20">
               <p className="text-sm text-muted-foreground text-center mb-3">Choose your frame:</p>
               <FrameSelector
                 selectedFrame={selectedFrame}
@@ -133,18 +135,12 @@ const Photobooth = () => {
               />
             </div>
 
-            {/* Name Input */}
-            <div className="bg-card/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
-              <label className="text-sm text-muted-foreground block text-center mb-2">
-                Add a name (optional):
-              </label>
-              <Input
-                type="text"
-                placeholder="e.g., Alex"
-                value={birthdayName}
-                onChange={(e) => setBirthdayName(e.target.value)}
-                className="rounded-full text-center max-w-xs mx-auto"
-                maxLength={20}
+            {/* Filter Selector */}
+            <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-primary/20">
+              <p className="text-sm text-muted-foreground text-center mb-3">Pick a filter:</p>
+              <FilterSelector
+                selectedFilter={selectedFilter}
+                onSelectFilter={setSelectedFilter}
               />
             </div>
 
@@ -154,7 +150,7 @@ const Photobooth = () => {
                 onClick={() => setMirrored(!mirrored)}
                 variant="outline"
                 size="lg"
-                className="rounded-full px-6 gap-2 hover:scale-105 transition-transform"
+                className="rounded-full px-6 gap-2 hover:scale-105 transition-transform border-2 border-primary/30"
               >
                 <FlipHorizontal className="w-5 h-5" />
                 Mirror
@@ -175,7 +171,7 @@ const Photobooth = () => {
 
       {/* Footer */}
       <div className="mt-8 text-center text-muted-foreground text-sm">
-        <p>🎈 Made with love for your special day 🎈</p>
+        <p>📸 happy birthday lexx {"<"}33 🎂</p>
       </div>
     </div>
   );
